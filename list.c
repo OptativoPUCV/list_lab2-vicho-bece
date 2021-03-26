@@ -34,7 +34,10 @@ List * createList() {
 }
 
 void * firstList(List * list) {
+  if(list == NULL)
     return NULL;
+  else
+    return list[0].head;
 }
 
 void * nextList(List * list) {

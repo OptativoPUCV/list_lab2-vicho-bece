@@ -53,3 +53,9 @@ Fri Mar 26 19:01:11 UTC 2021:
  tests:  1|5
 total_score: 10/70
 cfacb72
+Fri Mar 26 19:10:47 UTC 2021: 
+ list.c | 3 +++
+ 1 file changed, 3 insertions(+)
+ tests:  1|5
+total_score: 10/70
+378acaf
