@@ -36,9 +36,8 @@ List * createList() {
 }
 
 void * firstList(List * list) {
-  if(!list->head) return NULL;
-  list->current = list->head;
-  return (list->head);
+  printf("%p",list->head->data);
+  return NULL;
 }
 
 void * nextList(List * list) {
