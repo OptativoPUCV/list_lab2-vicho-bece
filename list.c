@@ -39,7 +39,7 @@ void * firstList(List * list) {
   if(!list->head) return NULL;
   list->current = list->head;
   printf("%p\n",(list->current));
-  return NULL;
+  return list->current;
 }
 
 void * nextList(List * list) {
