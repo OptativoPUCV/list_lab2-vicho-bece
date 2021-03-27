@@ -32,11 +32,15 @@ List * createList() {
   List * lista = (List *)calloc(1, sizeof(List));
   lista->head = NULL;
   lista->tail = NULL;  
-     return lista;
+  return lista;
 }
 
 void * firstList(List * list) {
-  return NULL;
+  if(list->head == NULL) return NULL;
+  else{
+  list->current = list->head;
+  return (list->head);
+  }
 }
 
 void * nextList(List * list) {
