@@ -68,8 +68,6 @@ void pushFront(List * list, const void * data) {
     nodo->prev = NULL;
     list->head = nodo;
     list->tail = nodo;
-
-
   }
   else{
     nodo->next = list->head;
@@ -87,18 +85,8 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-  Node* nuevoNODO = createNode(data);
-  printf("%p\n",list->current->data);
   if(list->current == list->head)
-  {
-    nuevoNODO->next = list->head;
-    list->head = nuevoNODO;
-    if(list->head)
-      list->head->prev = nuevoNODO;
-    nuevoNODO->prev = NULL;
-    printf("%p\n",list->current->data);
-  }
-  
+    pushFront(list,data);
 }
 
 void * popFront(List * list) {
