@@ -89,8 +89,8 @@ void pushCurrent(List * list, const void * data) {
   {
     nuevoNODO->next = list->head;
     list->head = nuevoNODO;
-    list->head->data = data;
     nuevoNODO->prev = NULL;
+    printf("%p",list->head->data);
   }
   
 }
