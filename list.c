@@ -40,8 +40,8 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
+  return list->current->next;
   list->current = list->head->next;
-    return list->current;
 }
 
 void * lastList(List * list) {
