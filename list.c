@@ -85,13 +85,13 @@ void pushBack(List * list, const void * data) {
 
 void pushCurrent(List * list, const void * data) {
   Node* nuevoNODO = createNode(data);
-  printf("%p\n",list->head->data);
+  printf("%p\n",list->current->data);
   if(list->current == list->head)
   {
     nuevoNODO->next = list->head;
     list->head = nuevoNODO;
     nuevoNODO->prev = NULL;
-    printf("%p\n",list->head->data);
+    printf("%p\n",list->current->data);
   }
   
 }
