@@ -29,7 +29,7 @@ Node * createNode(const void * data) {
 }
 
 List * createList() {
-  List * lista = (List *)malloc(sizeof(List));
+  List * lista = (List *)malloc(sizeof(List) * 1);
   lista->head = NULL;
   lista->tail = NULL;  
   return lista;
