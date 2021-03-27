@@ -29,14 +29,14 @@ Node * createNode(const void * data) {
 }
 
 List * createList() {
-  List * lista = (List *)calloc(0, sizeof(List));
+  List * lista = (List *)calloc(1, sizeof(List));
+  lista->head = NULL;
+  lista->tail = NULL;  
      return lista;
 }
 
 void * firstList(List * list) {
-  if(list->head == NULL) return NULL;
-  return list->head;
-  list->current = list->head->prev;
+  return NULL;
 }
 
 void * nextList(List * list) {
