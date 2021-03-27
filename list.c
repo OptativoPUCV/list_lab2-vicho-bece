@@ -39,7 +39,7 @@ void * firstList(List * list) {
   if(list->head == NULL) return NULL;
   else{
   list->current = list->head;
-  return (list->head);
+  return &(list->head);
   }
 }
 
