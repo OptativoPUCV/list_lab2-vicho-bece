@@ -29,18 +29,18 @@ Node * createNode(const void * data) {
 }
 
 List * createList() {
-  List * lista = (List *)calloc(1, sizeof(List));
+  List * lista = (List *)calloc(0, sizeof(List));
      return lista;
 }
 
 void * firstList(List * list) {
+  if(list->head == NULL) return NULL;
+  list->current = list->head;
   return list->head;
-  list->current->prev = list->current->next;
 }
 
 void * nextList(List * list) {
-    return list->current->next;
-    list->current->prev = list->current->next;
+    return NULL;
 }
 
 void * lastList(List * list) {
