@@ -69,7 +69,7 @@ void pushFront(List * list, const void * data) {
   
   list->head = nodo;
   nodo->prev = NULL;
-  list->head++;
+  list->current++;
 }
 
 void pushBack(List * list, const void * data) {
