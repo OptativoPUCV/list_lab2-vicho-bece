@@ -90,6 +90,8 @@ void pushCurrent(List * list, const void * data) {
   {
     nuevoNODO->next = list->head;
     list->head = nuevoNODO;
+    if(list->head)
+      list->head->prev = nuevoNODO;
     nuevoNODO->prev = NULL;
     printf("%p\n",list->current->data);
   }
