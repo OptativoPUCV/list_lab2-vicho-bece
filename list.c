@@ -63,7 +63,6 @@ void * prevList(List * list) {
 
 void pushFront(List * list, const void * data) {
   Node * nodo = createNode(data);
-  printf("%p\n", &(nodo->data));
   if(list->head == NULL){
     nodo->next = NULL;
     nodo->prev = NULL;
