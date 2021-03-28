@@ -92,6 +92,7 @@ void pushCurrent(List * list, const void * data) {
       nuevoNODO->prev = list->current->prev;
       list->tail = nuevoNODO;
       list->current->next = list->tail;
+      printf("%p\n", list->tail->data);
     }
     else{
       nuevoNODO->next = list->current->next;
