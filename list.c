@@ -95,12 +95,14 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-  Node * nuevoNODO = createNode(data);
+  if(list->current == list->head)
+    pushFront(list,data);
+  /*Node * nuevoNODO = createNode(data);
   if(list->current == list->head){
     nuevoNODO->prev = list->head;
     nuevoNODO->next = list->head->next;
     list->current = nuevoNODO;
-  }
+  }*/
   
 }
 
