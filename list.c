@@ -126,28 +126,20 @@ void * popBack(List * list) {
 void * popCurrent(List * list) {
   if(list->current == list->head)
     return popFront(list);
-  
+
   if(list->current == list->tail)
     return popBack(list);
 
-  /*else if(list->current == list->tail){ 
-    list->tail = list->tail->prev;
+  const void * aux;
+  if(list->current->prev == list->head){
+    aux = list->current->data;
+    list->current->next = list->head->next->next;
+    list->head->next = list->current->next;
     free(list->current);
-    list->current = list->tail;
-    list->tail->next = NULL;
+    list->current = list->head->next;
   }
-  else{
-    list->current->prev = list->current->next;
-    list->current->next = list->current->prev;
-    const void * search = list->current->next->data;
-    free(list->current);
-    list->current = list->head;
-    while(list->current->data != search)
-      list->current = list->current->next;
-  }*/
-
-
-    return NULL;
+  
+    return (void *)aux;
 }
 
 void cleanList(List * list) {
