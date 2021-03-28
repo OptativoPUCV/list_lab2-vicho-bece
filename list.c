@@ -106,8 +106,12 @@ void pushCurrent(List * list, const void * data) {
 }
 
 void * popFront(List * list) {
+  const void * aux = list->head->data;
+  list->head = list->head->next;
+    free(list->current);
     list->current = list->head;
-    return popCurrent(list);
+    list->head->prev = NULL;
+    return (void *)aux;
 }
 
 void * popBack(List * list) {
@@ -116,13 +120,9 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  const void * aux = list->current->data; 
-  if(list->current == list->head){
-    list->head = list->head->next;
-    free(list->current);
-    list->current = list->head;
-    list->head->prev = NULL;
-  }
+  if(list->current == list->head)
+    return popFront(list);
+  
 
   /*else if(list->current == list->tail){ 
     list->tail = list->tail->prev;
@@ -141,7 +141,7 @@ void * popCurrent(List * list) {
   }*/
 
 
-    return (void *)aux;
+    return NULL;
 }
 
 void cleanList(List * list) {
