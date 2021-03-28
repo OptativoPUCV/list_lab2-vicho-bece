@@ -89,7 +89,7 @@ void pushCurrent(List * list, const void * data) {
     Node * nuevoNODO = createNode(data);
     if(list->current == list->tail){
       nuevoNODO->next = NULL;
-      nuevoNODO->prev = list->current;
+      nuevoNODO->prev = list->current->prev;
       list->tail = nuevoNODO;
       list->current->next = list->tail;
     }
