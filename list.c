@@ -122,13 +122,23 @@ void * popCurrent(List * list) {
     list->head->prev = NULL;
   }
 
-
-  /*if(list->current == list->tail){
+  else if(list->current == list->tail){ 
     list->tail = list->tail->prev;
     free(list->current);
     list->current = list->tail;
     list->tail->next = NULL;
-  }*/
+  }
+  else{
+    list->current->prev = list->current->next;
+    list->current->next = list->current->prev;
+    const void * search = list->current->next->data;
+    free(list->current);
+    list->current = list->head;
+    while(list->current->data != search)
+      list->current = list->current->next;
+  }
+
+
     return (void *)aux;
 }
 
