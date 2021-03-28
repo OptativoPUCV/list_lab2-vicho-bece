@@ -79,28 +79,44 @@ void pushFront(List * list, const void * data) {
 }
 
 void pushBack(List * list, const void * data) {
-    list->current = list->tail;
-    pushCurrent(list,data);
+    Node * nodo = createNode(data);
+    if(list->tail == NULL){
+      nodo->next = NULL;
+      nodo->prev =NULL;
+      list->head = nodo;
+      list->tail = nodo;
+    }
+    else{
+      nodo->next = NULL;
+      nodo->prev = list->tail;
+      list->tail = nodo;
+      list->current->next = list->tail;
+    }
 }
 
 void pushCurrent(List * list, const void * data) {
-  if(list->current == list->head)
+  if((list->current == list->head)||(list->current == NULL))
     pushFront(list,data);
-  else{
-    Node * nuevoNODO = createNode(data);
-    if(list->current == list->tail){
-      nuevoNODO->next = NULL;
-      nuevoNODO->prev = list->tail;
-      list->tail = nuevoNODO;
-      list->current->next = list->tail;
-      
-    }
-    else{
-      nuevoNODO->next = list->current->next;
-      nuevoNODO->prev = list->current->prev;
-      list->current = nuevoNODO;
-    }
+
+  if(list->current == list->tail)
+    pushBack(list,data);
+  
+  Node * nuevoNODO = createNode(data);
+  if(list->current->prev == list->head)
+  {
+    nuevoNODO->prev = list->head->next;
+    nuevoNODO->next = list->current->prev;
+  }  
+  else if(list->current->next == list->tail)
+  {
+    nuevoNODO->prev = list->current->next;
+    nuevoNODO->next = list->tail->prev;
   }
+    else{
+      nuevoNODO->prev = list->current->next;
+      nuevoNODO->next = list->current->next;
+    }
+  
 }
 
 void * popFront(List * list) {
@@ -134,7 +150,7 @@ void * popCurrent(List * list) {
     const void * search = list->current->next->data;
     free(list->current);
     list->current = list->head;
-    while(list->current->data != &search)
+    while(list->current->data != search)
       list->current = list->current->next;
   }
 
