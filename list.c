@@ -134,7 +134,7 @@ void * popCurrent(List * list) {
     const void * search = list->current->next->data;
     free(list->current);
     list->current = list->head;
-    while(list->current->data != search)
+    while(list->current->data != &search)
       list->current = list->current->next;
   }
 
