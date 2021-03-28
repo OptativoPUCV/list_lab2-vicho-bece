@@ -98,8 +98,8 @@ void pushCurrent(List * list, const void * data) {
   if(list->current->prev == NULL)
     pushFront(list,data);
 
-  if(list->current->next == NULL)
-    pushBack(list,data);
+  /*if(list->current->next == NULL)
+    pushBack(list,data);*/
   
   Node * nuevoNODO = createNode(data);
   if(list->current->prev == list->head->next)
@@ -110,7 +110,7 @@ void pushCurrent(List * list, const void * data) {
     list->current->prev = nuevoNODO->next;
     list->current = nuevoNODO;
   }  
-  else if(list->current->next == list->tail)
+  /*else if(list->current->next == list->tail)
   {
     nuevoNODO->prev = list->current->next;
     nuevoNODO->next = list->tail->prev;
@@ -120,7 +120,7 @@ void pushCurrent(List * list, const void * data) {
       nuevoNODO->prev = list->current->next;
       nuevoNODO->next = list->current->next;
       list->current = nuevoNODO;
-    }
+    }*/
   
 }
 
