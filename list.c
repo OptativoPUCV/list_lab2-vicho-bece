@@ -95,10 +95,10 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-  if(list->current == list->head)
+  if(list->current->prev == NULL)
     pushFront(list,data);
 
-  if(list->current == list->tail)
+  if(list->current->next == NULL)
     pushBack(list,data);
   
   Node * nuevoNODO = createNode(data);
