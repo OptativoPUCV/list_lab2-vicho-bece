@@ -806,3 +806,9 @@ Sun Mar 28 00:40:43 UTC 2021:
  1 file changed, 2 insertions(+)
  tests:  0|0
 95e9b5c
+Sun Mar 28 00:44:10 UTC 2021: 
+ list.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+ tests:  10|2
+total_score: 45/70
+8ac2466
