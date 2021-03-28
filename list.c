@@ -73,6 +73,7 @@ void pushFront(List * list, const void * data) {
     nodo->prev = NULL;
     nodo->next = list->head;
     list->head = nodo;
+    printf("%p\n", list->head->data);
   }
 
 }
@@ -92,7 +93,7 @@ void pushCurrent(List * list, const void * data) {
       nuevoNODO->prev = list->current;
       list->tail = nuevoNODO;
       list->current->next = list->tail;
-      printf("%p\n", list->current->data);
+      
     }
     else{
       nuevoNODO->next = list->current->next;
