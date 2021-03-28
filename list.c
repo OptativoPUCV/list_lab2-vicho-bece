@@ -74,8 +74,6 @@ void pushFront(List * list, const void * data) {
     nodo->prev = NULL;
     list->head = nodo;
     list->head->prev = NULL;
-    
-    printf("%p\n", list->head->data);
   }
 
 }
