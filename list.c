@@ -115,14 +115,20 @@ void * popFront(List * list) {
 }
 
 void * popBack(List * list) {
-    list->current = list->tail;
-    return popCurrent(list);
+  const void * aux = list->tail->data;
+  list->tail = list->tail->prev;
+  free(list->current);
+  list->current = list->tail;
+  list->tail->next = NULL;
+  return (void *)aux;
 }
 
 void * popCurrent(List * list) {
   if(list->current == list->head)
     return popFront(list);
   
+  if(list->current == list->tail)
+    return popBack(list);
 
   /*else if(list->current == list->tail){ 
     list->tail = list->tail->prev;
